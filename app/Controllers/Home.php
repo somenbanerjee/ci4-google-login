@@ -2,19 +2,24 @@
 
 namespace App\Controllers;
 
-use Google\Service\ChromeManagement\GoogleTypeDate;
 
 class Home extends BaseController
 {
+
     public function index(): string
     {
         return view('login');
     }
     public function login(): string
     {
-        $client = new GoogleTypeDate;
-        $client->setApplicationName("Client_Library_Examples");
-        $client->setDeveloperKey("YOUR_APP_KEY");
+        require_once(APPPATH . '/Libraries/vendor/autoload.php');
+
+        $client = new Google\Client();
+        $Credentials->setAuthConfig($oauth_credentials);
+        $client->setRedirectUri($redirect_uri);
+
+        $service = new Google\Service\Drive($client);
+
         return view('login');
     }
     public function dashboard(): string

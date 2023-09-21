@@ -1,0 +1,12 @@
+{
+    "name": "google/login",
+    "authors": [
+        {
+            "name": "Somen Banerjee",
+            "email": "somen.banerjee0@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "2.15.0"
+    }
+}
